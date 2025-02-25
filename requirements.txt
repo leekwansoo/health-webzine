@@ -1,0 +1,14 @@
+streamlit
+pypdf
+PyPDF2
+pymupdf
+openai
+tiktoken
+langchain
+langchain-openai
+langchain-community
+langchain-core
+langchain-chroma
+langgraph
+Document
+python-dotenv
