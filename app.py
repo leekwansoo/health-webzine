@@ -45,7 +45,7 @@ def main_query(file_name):
         response = check_query_exist(file_name, query)
         if response:
             st.write(response["answer"])
-            print("same question")
+            #print("same question")
         else:
             response = query_chroma_db(query)
             if response:

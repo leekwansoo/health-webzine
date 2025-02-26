@@ -85,19 +85,19 @@ def check_query_exist(file_name, query):
     file_name = file_name.split('.')[0].split('/')[1]
     qa_file = f"{file_name}" + "_qa.txt"
     qa_files = os.listdir("qa_pair")
-    print(qa_file, qa_files)
+    #print(qa_file, qa_files)
     # if file is existing in the qa_files_list then rad the json file
     for file in qa_files:
-        print(file)
+        #print(file)
         if qa_file == file:
-            print(file)
+            #print(file)
             qa_file = "qa_pair/" + f"{qa_file}"
-            print(qa_file)
+            #print(qa_file)
             qa_pair_list = json.loads(Path(qa_file).read_text(encoding= "utf-8"))
             for qa_pair in qa_pair_list:
             
                 if query == qa_pair["query"]:
-                    print(qa_pair)
+                    #print(qa_pair)
                     return qa_pair
     return None
     
