@@ -12,3 +12,4 @@ langchain-chroma
 langgraph
 Document
 python-dotenv
+chromadb

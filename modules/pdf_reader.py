@@ -42,19 +42,27 @@ def check_file_exist(dir, file_name):
             file_exist = True
             return file_exist
      
-
+def save_list_to_file(file_name, data_list):
+    with open(file_name, "w", encoding="utf-8") as file:
+        file.write("\n".join(data_list))  # Join the list with newline and write to the file
+    print(f"File '{file_name}' created successfully!")
+    
+    
 def generate_question(text):
-    prompt = f"Please generate questions fromthe given {text}/,the questionnare should be in same language as given text"
+    prompt = f"Please generate questions from the given {text}/, all questions should be in list and same language as given text"
   
     llm = ChatOpenAI(model= model, temperature = 0.2)
     questions = llm.invoke(prompt)
-    return questions
+    query_list = questions.content.split("\n")
+    for query in query_list:
+        print(query)
+    return query_list
 
-def create_query_file(file_name, text):
+def create_query_file(file_name, query_list):
     file_name = file_name.split('.')[0]
     query_file = "query/" + f"{file_name}" + "_query.txt"
     with open(query_file, "w", encoding="utf-8") as f:
-        f.write(text)
+        f.write("\n".join(query_list))
     return query_file
 
 def add_qa_file(file_name, qa_pair):
